@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/1999/XSL/Transform"
+        targetNamespace="http://www.example.org/preparations"
+        xmlns:tns="http://www.example.org/preparations" elementFormDefault="qualified">
+    <element name="preparations">
+        <complexType>
+            <sequence>
+                <element name="preparation" maxOccurs="unbounded">
+                    <complexType>
+                        <sequence>
+                            <element name="name" type="tns:correctName"/>
+                            <element name="type" type="tns:correctName" />
+                            <element name="pharm" type="tns:correctName" />
+                            <element name="group">
+                                <complexType>
+                                    <choice>
+                                        <element name="antibiotic"/>
+                                        <element name="analgesic"/>
+                                        <element name="vitamin"/>
+                                        <element name="antimicrobial"/>
+                                        <element name="antidepressant"/>
+                                        <element name="complex-action"/>
+                                        <element name="tranquilizing_agent"/>
+                                    </choice>
+                                </complexType>
+                            </element>
+                            <element name="analogs">
+                                <complexType>
+                                    <sequence>
+                                        <element name="analog" type="tns:correctName" maxOccurs="unbounded"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                            <element name="versions">
+                                <complexType>
+                                    <sequence>
+                                        <element name="version" maxOccurs="unbounded">
+                                            <complexType>
+                                                <choice>
+                                                    <element name="pills">
+                                                        <complexType>
+                                                            <sequence>
+                                                                <element name="manufacturers" type="tns:manufacturers"/>
+                                                            </sequence>
+                                                        </complexType>
+                                                    </element>
+                                                    <element name="capsules">
+                                                        <complexType>
+                                                            <sequence>
+                                                                <element name="manufacturers" type="tns:manufacturers"/>
+                                                            </sequence>
+                                                        </complexType>
+                                                    </element>
+                                                    <element name="powder">
+                                                        <complexType>
+                                                            <sequence>
+                                                                <element name="manufacturers" type="tns:manufacturers"/>
+                                                            </sequence>
+                                                        </complexType>
+                                                    </element>
+                                                    <element name="drops">
+                                                        <complexType>
+                                                            <sequence>
+                                                                <element name="manufacturers" type="tns:manufacturers"/>
+                                                            </sequence>
+                                                        </complexType>
+                                                    </element>
+                                                    <element name="syrup">
+                                                        <complexType>
+                                                            <sequence>
+                                                                <element name="manufacturers" type="tns:manufacturers"/>
+                                                            </sequence>
+                                                        </complexType>
+                                                    </element>
+                                                    <element name="spray">
+                                                        <complexType>
+                                                            <sequence>
+                                                                <element name="manufacturers" type="tns:manufacturers"/>
+                                                            </sequence>
+                                                        </complexType>
+                                                    </element>
+                                                </choice>
+                                            </complexType>
+                                        </element>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                        </sequence>
+                        <attribute name="id" type="ID" use="required" />
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="manufacturers">
+            <sequence>
+                <element name="manufacturer" maxOccurs="unbounded">
+                    <complexType>
+                        <sequence>
+                            <element name="name" type="string"/>
+                            <element name="certificate">
+                                <complexType>
+                                    <sequence>
+                                        <element name="number" type="positiveInteger"/>
+                                        <element name="dateOfIssuance" type="date"/>
+                                        <element name="expirationDate" type="date"/>
+                                        <element name="registeringOrganization" type="string"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                            <element name="package">
+                                <complexType>
+                                    <sequence>
+                                        <element name="type" type="string"/>
+                                        <element name="amount" type="positiveInteger"/>
+                                        <element name="cost">
+                                            <complexType>
+                                                <sequence>
+                                                    <element name="currency" type="tns:currency"/>
+                                                    <element name="value">
+                                                        <simpleType>
+                                                            <restriction base="double">
+                                                                <minInclusive value="0.01"/>
+                                                            </restriction>
+                                                        </simpleType>
+                                                    </element>
+                                                </sequence>
+                                            </complexType>
+                                        </element>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                            <element name="dosage">
+                                <complexType>
+                                    <sequence>
+                                        <element name="value">
+                                            <simpleType>
+                                                <restriction base="string">
+                                                    <pattern value="[1-9]+[0-9]* [a-z]*"/>
+                                                </restriction>
+                                            </simpleType>
+                                        </element>
+                                        <element name="times" type="positiveInteger"/>
+                                        <element name="period" type="string"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                        </sequence>
+                    </complexType>
+                </element>
+            </sequence>
+    </complexType>
+
+    <simpleType name="currency">
+        <restriction base="string">
+            <enumeration value="RUR"/>
+            <enumeration value="EUR"/>
+            <enumeration value="USD"/>
+            <enumeration value="GBP"/>
+            <enumeration value="INR"/>
+            <enumeration value="JPY"/>
+            <enumeration value="AUD"/>
+            <enumeration value="BRL"/>
+            <enumeration value="CAD"/>
+            <enumeration value="CNY"/>
+            <length value="3"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="correctName">
+            <restriction base="string">
+                <pattern value="[a-zA-Z]+-*[a-zA-Z]+"/>
+            </restriction>
+    </simpleType>
+</schema>

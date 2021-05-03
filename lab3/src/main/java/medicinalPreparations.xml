@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preparations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://www.example.org/preparations" xsi:schemaLocation="http://www.example.org/preparations medicinalPreparations.xsd">
+    <preparation id="p201">
+        <name>Korvalol</name>
+        <type>Sedative</type>
+        <pharm>Korvalol-pharm</pharm>
+        <group>
+            <tranquilizing_agent/>
+        </group>
+        <analogs>
+            <analog>Valocardin</analog>
+        </analogs>
+        <versions>
+            <version>
+                <pills>
+                    <manufacturers>
+                        <manufacturer>
+                            <name>Farmak</name>
+                            <certificate>
+                                <number>666123</number>
+                                <dateOfIssuance>2021-09-09</dateOfIssuance>
+                                <expirationDate>2051-09-09</expirationDate>
+                                <registeringOrganization>public health Ministry</registeringOrganization>
+                            </certificate>
+                            <package>
+                                <type>box</type>
+                                <amount>20</amount>
+                                <cost>
+                                    <currency>RUR</currency>
+                                    <value>200</value>
+                                </cost>
+                            </package>
+                            <dosage>
+                                <value>50 mg</value>
+                                <times>2</times>
+                                <period>day</period>
+                            </dosage>
+                        </manufacturer>
+                    </manufacturers>
+                </pills>
+            </version>
+        </versions>
+    </preparation>
+
+    <preparation id="p202">
+        <name>Paracetamol</name>
+        <type>Analgetic</type>
+        <pharm>paracatamol-pharm</pharm>
+        <group>
+            <analgesic/>
+        </group>
+        <analogs>
+            <analog>Nimesil</analog>
+            <analog>Arbidol</analog>
+            <analog>Ibuklin</analog>
+        </analogs>
+        <versions>
+            <version>
+                <pills>
+                    <manufacturers>
+                        <manufacturer>
+                            <name>Paracetamol-manufacturer</name>
+                            <certificate>
+                                <number>228</number>
+                                <dateOfIssuance>1950-01-01</dateOfIssuance>
+                                <expirationDate>2050-01-02</expirationDate>
+                                <registeringOrganization>public health Ministry</registeringOrganization>
+                            </certificate>
+                            <package>
+                                <type>box</type>
+                                <amount>20</amount>
+                                <cost>
+                                    <currency>USD</currency>
+                                    <value>4</value>
+                                </cost>
+                            </package>
+                            <dosage>
+                                <value>45 mg</value>
+                                <times>3</times>
+                                <period>day</period>
+                            </dosage>
+                        </manufacturer>
+                        <manufacturer>
+                            <name>Another-PM</name>
+                            <certificate>
+                                <number>1999</number>
+                                <dateOfIssuance>2000-12-12</dateOfIssuance>
+                                <expirationDate>3000-10-10</expirationDate>
+                                <registeringOrganization>public health Ministry</registeringOrganization>
+                            </certificate>
+                            <package>
+                                <type>box</type>
+                                <amount>25</amount>
+                                <cost>
+                                    <currency>EUR</currency>
+                                    <value>3</value>
+                                </cost>
+                            </package>
+                            <dosage>
+                                <value>49 mg</value>
+                                <times>1</times>
+                                <period>8 hours</period>
+                            </dosage>
+                        </manufacturer>
+                    </manufacturers>
+                </pills>
+            </version>
+            <version>
+                <powder>
+                    <manufacturers>
+                        <manufacturer>
+                            <name>Powder-mr</name>
+                            <certificate>
+                                <number>5555</number>
+                                <dateOfIssuance>2001-11-09</dateOfIssuance>
+                                <expirationDate>2051-11-09</expirationDate>
+                                <registeringOrganization>public health Ministry</registeringOrganization>
+                            </certificate>
+                            <package>
+                                <type>box with small packets</type>
+                                <amount>10</amount>
+                                <cost>
+                                    <currency>RUR</currency>
+                                    <value>321</value>
+                                </cost>
+                            </package>
+                            <dosage>
+                                <value>60 mg</value>
+                                <times>3</times>
+                                <period>day</period>
+                            </dosage>
+                        </manufacturer>
+                    </manufacturers>
+                </powder>
+            </version>
+        </versions>
+    </preparation>
+</preparations>
